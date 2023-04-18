@@ -1,0 +1,4 @@
+- name: Copy a template file
+  template: 
+    src: myexport.j2
+    dest: /home/john/myfile

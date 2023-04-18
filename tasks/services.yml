@@ -1,0 +1,29 @@
+- name: Install nfs-utils
+  yum:
+    name: "{{ myservice }}"
+    state: latest
+
+- name: Enable nfs rpcbind
+  service:
+    name: "{{item}}"
+    enabled: yes
+  with_items:
+    - "{{ servicename }}"
+    - rpcbind
+
+- name: Enable nfs rpc-bind mountd
+  ansible.posix.firewalld:
+    service: "{{ item }}"
+    permanent: true
+    state: enabled
+  with_items:
+    - "{{ myfilesystem }}"
+    - rpc-bind
+    - mountd
+
+- name: Enable SELinux
+  ansible.posix.selinux:
+    policy: targeted
+    state: enforcing
+
+

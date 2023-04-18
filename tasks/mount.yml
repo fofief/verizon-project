@@ -1,0 +1,13 @@
+- name: Create a mount point
+  file:
+    path: "{{ nfsclient }}"
+    state: directory
+
+- name: Mount an NFS volume
+  ansible.posix.mount:
+    src: Node3:"{{ nfsshare }}"
+    path: "{{ nfsclient }}"
+    state: mounted
+    fstype: "{{ myfilesystem }}"
+
+

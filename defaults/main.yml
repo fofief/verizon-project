@@ -1,0 +1,12 @@
+---
+# defaults file for verizon-project
+
+nfsshare: "/verizon-data-shared-drive"
+nfsclient: "/verizon-client"
+disk: "/dev/nvme0n2"
+fstypeserver: "xfs"
+myfilesystem: "nfs"
+servicename: "nfs-server"
+myservice: "nfs-utils"
+
+

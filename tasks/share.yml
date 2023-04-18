@@ -1,0 +1,21 @@
+- name: Format a disk
+  community.general.filesystem:
+    fstype: "{{ fstypeserver }}"
+    dev: "{{ disk }}"
+- name: Create a directory
+  file:
+    path: "{{ nfsshare }}"
+    state: directory
+
+
+- name: Mount a disk
+  ansible.posix.mount:
+    path: "{{ nfsshare }}"
+    src: "{{ disk }}"
+    fstype: "{{ fstypeserver }}"
+    state: present
+
+
+    
+
+

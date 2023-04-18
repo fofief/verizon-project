@@ -1,0 +1,21 @@
+---
+# tasks file for verizon-project
+
+- name: share task
+  import_tasks: share.yml
+
+- name: services task
+  import_tasks: services.yml
+
+- name: exports task
+  import_tasks: exports.yml
+
+# Play 2
+
+- name: client task
+  import_tasks: client.yml
+
+- name: mount task
+  import_tasks: mount.yml
+
+
